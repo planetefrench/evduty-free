@@ -7,7 +7,9 @@ from datetime import datetime
 import json
 import requests
 
-LOGIN_TEMPLATE = {
+class EVdutyFree:
+    """API to access EVduty in Python"""   
+    LOGIN_TEMPLATE = {
         'device': {
             "id": "A",
             "model": "A",
@@ -17,7 +19,6 @@ LOGIN_TEMPLATE = {
         "password": "INVALID"
     }
 
-class EVdutyFree:
     """Create an instance of the API connector for EVduty"""
     def __init__(self, username, password, request_get_timeout = 30, jwt_token_drift = 0):
         self.username = username
