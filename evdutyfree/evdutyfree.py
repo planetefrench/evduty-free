@@ -63,9 +63,8 @@ class EVdutyFree:
         self.jwttoken_ttl = auto_response["expiresIn"]
         self.headers["Authorization"] = f"Bearer {self.jwttoken}"
 
-    def get_stations(self):
-        """Returns a list of station ids for the authenticated user"""
-        stations = []
+    def get_station_info(self):
+        """Return a dict of all of the stations for the account"""
         try:
             response = requests.get(
                 f"{self.baseurl}v1/account/stations",
@@ -75,24 +74,25 @@ class EVdutyFree:
             response.raise_for_status()
         except requests.exceptions.HTTPError as err:
             raise err
-        for station in json.loads(response.text):
-            stations.append(station["id"])
-        return stations
 
-    def get_terminals(self, stationid):
+        return json.loads(response.text)
+
+    def get_station_ids(self):
+        """Returns a list of station ids for the authenticated user"""
+        stationids = []
+
+        stations = self.get_station_info()
+
+        for station in stations:
+            stationids.append(station["id"])
+        return stationids
+
+    def get_terminal_ids(self, stationid):
         """Returns a list of terminals for the given stationId"""
         terminals = []
-        try:
-            response = requests.get(
-                f"{self.baseurl}v1/account/stations",
-                headers=self.headers,
-                timeout=self._request_get_timeout
-            )
-            response.raise_for_status()
-        except requests.exceptions.HTTPError as err:
-            raise err
+        stations = self.get_station_info()
 
-        for station in json.loads(response.text):
+        for station in stations:
             if station["id"] == stationid:
                 for terminal in station["terminals"]:
                     terminals.append(terminal["id"])
@@ -149,4 +149,3 @@ class EVdutyFree:
             return terminal["chargingProfile"]["chargingRate"]
 
         return terminal["amperage"]
-        
