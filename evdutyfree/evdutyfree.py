@@ -45,7 +45,7 @@ class EVdutyFree:
         ) > datetime.timestamp(datetime.now()):
             return
 
-        jlogin = LOGIN_TEMPLATE
+        jlogin = self.LOGIN_TEMPLATE
         jlogin["email"] = self.username
         jlogin["password"] = self.password
 
