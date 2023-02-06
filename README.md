@@ -1,7 +1,14 @@
+
+
+
+
 # evdutyfree
  Unofficial Python Module interface for EVduty chargers api
 
-Based on https://github.com/cliviu74/wallbox
+ ⚠️Warning - Very ALPHA and not ready for production. ⚠️
+
+
+Loosely based on https://github.com/cliviu74/wallbox.
 
 ## Example
 
