@@ -5,7 +5,7 @@ def read(name):
     return open(os.path.join(os.path.dirname(__file__), name), encoding='utf-8').read()
 
 setup(
-    name="evdutyfree",
+    name="evduty-free",
     version="v0.0.2-alpha",
     description="Unofficial module for interacting with EVDuty EV charger api",
     long_description=read("README.md"),
@@ -14,7 +14,7 @@ setup(
     author="Jean-Marc G",
     author_email="none@none.none",
     url="https://github.com/planetefrench/evduty-free",
-    download_url="https://github.com/planetefrench/evduty-free/archive/refs/tags/v0.0.1-alpha.tar.gz",
+    download_url="https://github.com/planetefrench/evduty-free/archive/refs/tags/v0.0.1-alpha2.tar.gz",
     license="Apache 2",
     packages=["evdutyfree"],
     install_requires=["requests>=2.22.0", "simplejson>=3.16.0"],

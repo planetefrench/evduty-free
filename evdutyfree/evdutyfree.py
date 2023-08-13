@@ -24,7 +24,7 @@ class EVdutyFree:
         self.username = username
         self.password = password
         self._request_get_timeout = request_get_timeout
-        self.baseurl = "https://api-evduty.net/"
+        self.baseurl = "https://api.evduty.net/"
         self.jwt_token_drift = jwt_token_drift
         self.jwttoken = ""
         self.jwttoken_ttl = 0
