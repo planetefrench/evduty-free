@@ -6,7 +6,7 @@ def read(name):
 
 setup(
     name="evdutyfree",
-    version="v0.0.1-alpha",
+    version="v0.0.2-alpha",
     description="Unofficial module for interacting with EVDuty EV charger api",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
